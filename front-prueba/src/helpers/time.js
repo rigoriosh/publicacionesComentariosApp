@@ -1,6 +1,7 @@
 
 export const getTimeFixes = (startDate) => {
     const endDate = new Date();
+    startDate = new Date(startDate)
     const seconds = (endDate.getTime() - startDate.getTime()) / 1000;
     const minutos = seconds / 60;
     const horas = minutos / 60;

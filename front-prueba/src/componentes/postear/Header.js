@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { agregarPublicacion } from '../actions/publicacionAction';
-import { useForm } from '../hooks/useForm'
+import { agregarPublicacion} from '../../actions/publicacionAction';
+import { useForm } from '../../hooks/useForm'
 
 export const Header = () => {
     const dispatch = useDispatch();
     const {nombre} = useSelector(state => state.authReducer)
+    const {publicaciones} = useSelector(state => state.publicacionReducer)
     const [fields, handledInputChange, resetFields] = useForm({estado:''})
     const {estado} = fields;
     const publicar = (e) => {
@@ -20,10 +21,16 @@ export const Header = () => {
                 estado,
                 comentarios:[]
             }
-            dispatch(agregarPublicacion(publicacion));
+            dispatch(agregarPublicacion(publicacion));            
             resetFields()
          }
-    }
+    }    
+    useEffect(() => {
+        
+        if (publicaciones.length > 0) {
+            localStorage.setItem('dbPublicaciones', JSON.stringify(publicaciones))
+        }
+    }, [publicaciones])
     return (
         <header className="App-header border-container">      
         <form onSubmit={publicar}>

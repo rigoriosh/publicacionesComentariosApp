@@ -1,14 +1,28 @@
-import React from 'react'
-import { Header } from "../Header.js";
-import '../../App.css';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { Header } from "../postear/Header.js";
+import '../../styles/App.css';
+import { useDispatch, useSelector } from 'react-redux';
 import Publicacion from './Publicacion.js';
+import { startLogout } from '../../actions/authActions.js';
+import { updateDBtest } from '../../actions/publicacionAction.js';
 
 export const PublicacionesScreen = () => {
+    const dispatch = useDispatch();
     const {publicaciones} = useSelector( state => state.publicacionReducer );
-    //console.log(publicaciones)
+    const {nombre} = useSelector( state => state.authReducer );
+    const logOut = () => {
+        dispatch(startLogout())
+    }
+    useEffect(() => {
+        const db = JSON.parse(localStorage.getItem('dbPublicaciones'));
+        if (db.length > 0) {
+            dispatch(updateDBtest(db))
+        }
+        //console.log(db);
+    }, [])
     return (
         <div className="App container">
+            <button onClick={logOut}>{`${nombre}  `}<i className="fas fa-sign-out-alt"></i></button>
             <Header />
             {
                 (publicaciones.length < 1) 
@@ -18,8 +32,6 @@ export const PublicacionesScreen = () => {
                     publicaciones.map(p => {
                         return <Publicacion key={p.id_publicacion} publicacion={p}/>
                     })
-                    
-                   
                 )
             }
         </div>

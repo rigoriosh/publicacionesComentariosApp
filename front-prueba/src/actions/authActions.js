@@ -88,10 +88,11 @@ const setTokenLocalStorage = (token) => {
 
 export const startLogout = () => {    
     return async (dispatch) => {
-        localStorage.clear();
-        dispatch(logout());
-        //dispatch(eventResent())
+        localStorage.removeItem('user');
+        dispatch(logout());        
     }
 }
 
-const logout = () => ({type: types.authLogout});
+const logout = () => {    
+    return {type: types.authLogout}
+};

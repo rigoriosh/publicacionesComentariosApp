@@ -1,9 +1,9 @@
 import React from 'react';
-import { /* useSelector, */ useDispatch } from 'react-redux';
+import {useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { login} from '../../actions/authActions';
 import { useForm } from '../../hooks/useForm';
-import './login.css';
+import '../../styles/login.css';
 
 export const LoginScreen = () => {
     const dispatch = useDispatch();

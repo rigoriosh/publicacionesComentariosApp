@@ -11,6 +11,7 @@ const initialState = {
             estado: null,
             comentarios: [
                 {
+                    id_comentario: null,
                     nombreUsuario: null,
                     foto: null,
                     fecha: null,
@@ -31,7 +32,19 @@ export const publicacionReducer = (state = initialState, action) => {
                     ...state.publicaciones
                 ]
             }
-        
+        case types.nuevoComentario:
+            state.publicaciones.map(
+                p => (p.id_publicacion === action.payload.id_publicacion)
+                ? p.comentarios = [action.payload.comentario, ...p.comentarios] //p.comentarios.push(action.payload.comentario)
+                : p
+            )
+            return {
+                ...state
+            }
+        case types.updateDb:
+            return {
+                publicaciones: action.payload
+            }
     
         default:
             return state;

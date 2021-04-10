@@ -2,9 +2,11 @@
 export const types = {
 
     authLogin: '[auth login]',
+    authLogout: '[auth logout]',
 
-
-    nuevaPublicacion: '[publicacion] agregar publicación'
+    updateDb: '[publicacion] actualizar DB',
+    nuevaPublicacion: '[publicacion] agregar publicación',
+    nuevoComentario: '[publicacion] adiciona un comentario a una publicacion',
 
     
 

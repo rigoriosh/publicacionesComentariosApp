@@ -5,3 +5,18 @@ export const agregarPublicacion = (publicacion) => ({
     payload: publicacion
 })
 
+export const agregarComentario = (id_publicacion, comentario) => (
+    
+    {
+        type: types.nuevoComentario,
+        payload: {
+            id_publicacion,
+            comentario
+        }
+    }
+)
+
+export const updateDBtest = (publicaciones) => ({
+    type: types.updateDb,
+    payload: publicaciones
+})

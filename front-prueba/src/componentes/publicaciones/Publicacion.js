@@ -1,20 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import personLog from '../../assets/personIcon.jpg';
 import { getTimeFixes } from '../../helpers/time';
-import { CountComents } from '../CountComents';
-import { Comentarios } from '../Comentarios';
+import { CountComents } from './CountComents';
+import Comentarios from './Comentarios';
+import { useDispatch, useSelector } from 'react-redux';
+import { agregarComentario } from '../../actions/publicacionAction';
+//import { Comentarios } from '../Comentarios';
 
 const Publicacion = ({publicacion}) => {
-    console.log(publicacion);
+    const dispatch = useDispatch();
+    //console.log(publicacion);
     const {id_publicacion, estado, comentarios, fecha, nombre, urlFoto} = publicacion; 
     
     const {time, textTime} = getTimeFixes(fecha)    
-    ///////////////
+    /////////////// botn comentar
+    const [showComentar, setShowComentar] = useState(false);    
+    ///////////////new comment
+    const {nombre: nombreUsuario} = useSelector(state => state.authReducer)
+    const [newcoment, setNewcoment] = useState('');
     
-    const comentar = (id_publicacion) => {
-        console.log('comentar', id_publicacion);
-    }
+    useEffect(() => {
+        if (!showComentar && !!newcoment.trim()) {       
+            const comentToSave = {
+                id_comentario: Number(new Date()),
+                nombreUsuario,
+                foto: null,
+                fecha: Number(new Date()),
+                comentario: newcoment
+            }        
+            dispatch(agregarComentario(id_publicacion, comentToSave))
+            setNewcoment('')
+            //console.log({comentToSave});
+        }
+    }, [dispatch, showComentar])
+   // console.log({id_publicacion}, {showComentar}, {newcoment}); 
+   ////////////////////////mostrar lista de comentarios
+   const [listComents, setlistComents] = useState(false);
+
+
     return (
         <>
         <div className="card border-container">
@@ -28,17 +52,19 @@ const Publicacion = ({publicacion}) => {
                     <p className="estado">{estado}</p>
                 </div>
             </div>
-            { (comentarios.length > 0) && <CountComents/> }
+            { (comentarios.length > 0) && <CountComents comentarios={comentarios}/> }
             
             <div className="row justContSpaceAround">
                 
-                <div className="col w50 font1 border-container">Reaccionar</div>
-                <div onClick={() => {comentar(id_publicacion)}} className="col w50 font1 border-container">Comentar</div>
+                <div onClick={() => {
+                    setlistComents(!listComents)
+                    setShowComentar(!listComents)
+                    }} className="col w50 font1 border-container">Reaccionar</div>
+                <div onClick={() => {setShowComentar(!showComentar)}} className="col w50 font1 border-container">Comentar</div>
             </div>
-            
-            
         </div>
-        { (/* comentarios.length > 0 */ true) && <Comentarios/> }
+        {(listComents || showComentar)&&<Comentarios comentarios={comentarios} comentar={showComentar} comentario={setNewcoment}/>}
+        
         
         </>
     )
