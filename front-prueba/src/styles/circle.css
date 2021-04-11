@@ -1,0 +1,27 @@
+
+.circle{
+    border-radius: 100%;    
+    min-width: 30px;
+    max-height: 30px;   
+    margin-right: -8px; 
+  }
+
+  .red{
+    color: red;
+    background-color: red;
+  }
+  
+  .blue{
+    color: blue;
+    background-color: blue;
+  }
+  
+  .yellow{
+    color: yellow;
+    background-color: yellow;
+  }
+  
+  .green{
+    color: green;
+    background-color: green;
+  }

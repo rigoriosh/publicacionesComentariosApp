@@ -13,7 +13,7 @@ import PublicRoute from './PublicRoute';
 
 export const AppRouter = () => {
     const dispatch = useDispatch();
-    const {checking, uid} = useSelector( state => state.authReducer );
+    const {uid} = useSelector( state => state.authReducer );
 
     /* Revisar si ya se encuentra logeado para redireccionar a la vista de publicaciones */
     useEffect(() => {

@@ -3,9 +3,8 @@ import { Redirect, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 
-export const PrivateRoute = ({isUserLoggedIn, component: Component, ...rest}) => {
-    //console.log(rest);
-    //localStorage.setItem('lastPath', rest.location.pathname+rest.location.search);
+export const PrivateRoute = ({isUserLoggedIn, component: Component, ...rest}) => {    
+    
     return (
        <Route {...rest}
         component = { (props) => (

@@ -1,0 +1,46 @@
+.header-input{
+    width: -webkit-fill-available;
+    padding-left: 20px;
+    padding-top: 10px;   
+    padding-bottom: 10px;
+    
+    font-size: 0.7em;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .header-div-input{
+    border-bottom: 1px solid rgb(202 210 218);
+  }
+  
+  .header-input::placeholder{
+    color: #3bc0c0;;
+    font-size: 1.1em;
+    font-weight: inherit;  
+  }
+
+  .App-header {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .header-form{
+      background-color: white;
+      text-align: -webkit-right;
+      max-height: 100px;
+  }
+
+  .header-btn-publicar{
+    margin-right: 10px;
+    background-color: #18c318;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    font-size: initial;
+  }
+
+  .header-div-btn{
+    padding: 8px 0px 8px 0px;
+  }

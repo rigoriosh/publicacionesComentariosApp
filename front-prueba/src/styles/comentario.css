@@ -1,0 +1,23 @@
+.coment-estado{
+    margin: 0px;
+    padding-top: 20px;
+    font-size: 0.7em;
+    margin-left: 10px;
+    padding-right: 25px;
+    contain: strict;
+    width: 100%;
+}
+
+.col2{    
+    text-align: justify; 
+    width: 100%; 
+  }
+
+.coment-input{
+    width: 90%;
+    padding-right: 0px;
+    border: 1px solid lightgray;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}

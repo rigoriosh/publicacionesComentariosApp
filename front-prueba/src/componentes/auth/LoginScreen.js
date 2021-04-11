@@ -1,18 +1,17 @@
 import React from 'react';
 import {useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
+
+import '../../styles/login.css';
+
 import { login} from '../../actions/authActions';
 import { useForm } from '../../hooks/useForm';
-import '../../styles/login.css';
 
 export const LoginScreen = () => {
     const dispatch = useDispatch();
 
-    const [fieldsLogin, handledLoginInputChange] = useForm(
-        {
-            nombre: ''
-        }
-    )
+    const [fieldsLogin, handledLoginInputChange] = useForm({nombre: ''})
+
     const {nombre} = fieldsLogin;
 
     const handleLogin = (e) => {
@@ -28,20 +27,20 @@ export const LoginScreen = () => {
     
 
     return (
-        <div className="container login-container">
-            <div className="row">
-                <div className="col-md-6 login-form-1">
-                    <h3>Ingreso</h3>
+        <div className=" login-container">
+            <div className="">
+                <div className="">
+                    <h3>Bienvenido</h3>
                     <form onSubmit={handleLogin}>
-                        <div className="form-group">
+                        <div className="login-form-input">
                             <input 
                                 type="text"
                                 className="form-control"
-                                placeholder="Ingresa tu nombre"
+                                placeholder="Ingresa con tu nombre"
                                 name='nombre' value={nombre} onChange={handledLoginInputChange}
                             />
                         </div>                        
-                        <div className="form-group">
+                        <div className="">
                             <input 
                                 type="submit"
                                 className="btnSubmit"

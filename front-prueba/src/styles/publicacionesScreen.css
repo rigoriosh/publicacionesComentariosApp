@@ -1,0 +1,17 @@
+.App {
+    text-align: center;
+    background-color: #667a8129;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+
+  .ps-btn-logOut{
+    border: none;
+    background: transparent;    
+    align-self: flex-end;
+  }

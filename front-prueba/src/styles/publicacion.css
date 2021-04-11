@@ -1,0 +1,58 @@
+.card{
+    background-color: white;
+      margin-top: 30px;
+  }
+
+  .col-img{
+    padding: 20px 20px;
+    max-width: 10%;
+      height: fit-content;
+  }
+ 
+
+  .foto{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  
+  .nombre{    
+    margin: 0px;
+    margin-top: 20px;
+  }
+  
+  .fecha{
+      margin: 0px;
+    color: #9e9e9e;
+    font-size: 0.6em;
+  }
+  
+  .estado{
+    text-align: start;
+    margin: 0px;
+    margin-top: 10px;
+    font-size: 0.5em;
+    padding-right: 50px;
+    font-weight: bold;  
+  }
+  
+
+  .public-bt{
+    border-top: 1px solid rgb(202 210 218);
+    /* padding: 15px 0px; */
+  }
+
+  .public-cont1{
+    border-right: 1px solid rgb(202 210 218);
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .public-cont2{    
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .public-pb{
+      padding-bottom: 20px;
+  }

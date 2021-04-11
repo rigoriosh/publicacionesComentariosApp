@@ -1,12 +1,17 @@
 import React from 'react'
+
 import Circle from '../utilsComponent/Circle'
+import '../../styles/countComents.css'
 
 export const CountComents = (comentarios) => {
-    const colorCircles = ['blue','red', 'yellow']
+
+    const colorCircles = ['blue','red', '#f1a110']
     const {comentarios: coments} = comentarios;    
+
+    
     return (
         <>
-            <div className="row justContSpaceAround">
+            <div className="row justContSpaceBet countcoments-conten countcoments-bord-cont">
                 <div className="col">
                     <div className="row">
                         {
@@ -19,8 +24,8 @@ export const CountComents = (comentarios) => {
                     </div>
 
                 </div>
-                <div className="col">{coments.length} comentarios</div>
+                <div className="col countcoments-text">{coments.length} comentarios</div>
             </div>
-        </>
+       </>
     )
 }

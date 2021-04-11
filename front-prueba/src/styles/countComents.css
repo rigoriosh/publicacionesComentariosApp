@@ -1,0 +1,19 @@
+.countcoments-text{
+    color: darkgrey;
+    font-family: ui-monospace;
+    font-size: 0.8em;
+}
+
+.countcoments-conten{
+    padding: 15px 20px;
+}
+
+.countcoments-bord-cont{
+    border-top: 1px solid rgb(202 210 218);
+}
+
+.countcoments-conten__circle{
+    padding-left: 3px;
+    background-color: white;
+    border-radius: 100%;
+}

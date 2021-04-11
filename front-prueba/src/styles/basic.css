@@ -1,0 +1,51 @@
+body{
+    margin: 0;    
+}
+
+.container {   
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 70%;
+}
+
+.row{
+    display: flex;
+      flex-direction: row;
+  }
+  
+  .col{ 
+      flex-direction: column;
+  }
+
+
+  .border-container{
+    border-width: 1px;
+      border-style: solid;
+      border-color: rgb(202 210 218);
+  }
+
+  .justContSpaceAround{
+    justify-content: space-around;
+  }
+  
+  .justContSpaceBet{
+    justify-content: space-between;
+  }
+  
+  .w50{
+    width: 50%;
+  }
+  
+  .font1{
+    color: #3bc0c0;
+    font-size: 0.7em;
+    font-weight: bold;
+  }
+
+  .cursorpointer{
+    cursor: pointer;
+  }
+
+.justiContFlexEnd{
+    justify-content: flex-end;
+  }

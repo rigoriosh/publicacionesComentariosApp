@@ -3,7 +3,6 @@ import { useState } from "react"
 
 export const useForm = (initialState) => {
 
-    //console.log(initialState)
     
     const [fields, setfields] = useState(initialState)
 
@@ -12,7 +11,7 @@ export const useForm = (initialState) => {
     }
 
     const handledInputChange = ({target}) => {
-        //console.log(target.value)
+        
         setfields(
             {
                 ...fields, [target.name]: target.value

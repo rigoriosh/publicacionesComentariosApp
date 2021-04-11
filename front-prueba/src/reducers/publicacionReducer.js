@@ -24,6 +24,7 @@ const initialState = {
 
 export const publicacionReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case types.nuevaPublicacion:
             return {
                 ...state,
@@ -32,18 +33,26 @@ export const publicacionReducer = (state = initialState, action) => {
                     ...state.publicaciones
                 ]
             }
+
         case types.nuevoComentario:
             state.publicaciones.map(
                 p => (p.id_publicacion === action.payload.id_publicacion)
-                ? p.comentarios = [action.payload.comentario, ...p.comentarios] //p.comentarios.push(action.payload.comentario)
+                ? p.comentarios = [action.payload.comentario, ...p.comentarios]
                 : p
             )
             return {
                 ...state
             }
+
         case types.updateDb:
             return {
                 publicaciones: action.payload
+            }
+            
+        case types.limpiarPublicaciones:
+            return{
+                ...state,
+                ...initialState
             }
     
         default:
