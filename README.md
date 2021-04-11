@@ -12,7 +12,7 @@
 
 ## En la carpeta helpers es para guardar archivos con lógica reutilizable.
 
-## En la carpeta router se maneja las rutas publicas y privadas
+## En la carpeta router se maneja las rutas públicas y privadas
 
 ## El proyecto no tiene aun backend, se guardan datos en el localStorage.
 
