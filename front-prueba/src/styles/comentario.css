@@ -20,4 +20,11 @@
     padding: 15px 10px;
     margin-bottom: 15px;
     margin-top: 15px;
+    cursor: pointer;
+    outline: none;
 }
+
+.coment-input:hover{
+    background-color: #86858533;
+    
+  }

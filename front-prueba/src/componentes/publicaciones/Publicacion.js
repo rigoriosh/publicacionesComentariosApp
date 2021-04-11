@@ -8,7 +8,7 @@ import personLog from '../../assets/personIcon.jpg';
 import { getTimeFixes } from '../../helpers/time';
 import { CountComents } from './CountComents';
 import Comentarios from './Comentarios';
-import { agregarComentario } from '../../actions/publicacionAction';
+import { agregarComentario, updateDBtest} from '../../actions/publicacionAction';
 
 const Publicacion = ({publicacion}) => {
 
@@ -16,7 +16,9 @@ const Publicacion = ({publicacion}) => {
     
     const {id_publicacion, estado, comentarios, fecha, nombre, urlFoto} = publicacion; 
     
-    const {time, textTime} = getTimeFixes(fecha) 
+    const timeFixes = getTimeFixes(new Date(fecha)) 
+    
+    const {time, textTime} = timeFixes;
 
     /////////////// btn comentar
     const [showComentar, setShowComentar] = useState(false);    
@@ -24,6 +26,8 @@ const Publicacion = ({publicacion}) => {
     ///////////////new comment
     const {nombre: nombreUsuario} = useSelector(state => state.authReducer)
     const [newcoment, setNewcoment] = useState('');
+
+    const {publicaciones} = useSelector( state => state.publicacionReducer );
     
     useEffect(() => {
         if (!showComentar && !!newcoment.trim()) {       
@@ -35,7 +39,8 @@ const Publicacion = ({publicacion}) => {
                 comentario: newcoment
             }        
             dispatch(agregarComentario(id_publicacion, comentToSave))
-            setNewcoment('')            
+            setNewcoment('');
+            dispatch(updateDBtest(publicaciones))            
         }
     }, [dispatch, showComentar])
    
@@ -46,7 +51,7 @@ const Publicacion = ({publicacion}) => {
 
     return (
         <>
-        <div className="card border-container">
+        <section className="card border-container">
             <div className="row public-pb">
                 <div className="col col-img">
                     <img className="foto" src={!urlFoto ? personLog : urlFoto} alt="" />
@@ -71,7 +76,7 @@ const Publicacion = ({publicacion}) => {
                     Comentar
                 </div>
             </div>
-        </div>
+        </section>
         {(listComents || showComentar)
             &&
             <Comentarios comentarios={comentarios} comentar={showComentar} comentario={setNewcoment}/>}

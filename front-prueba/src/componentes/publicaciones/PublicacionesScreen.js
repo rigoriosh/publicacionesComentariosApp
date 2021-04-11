@@ -32,22 +32,23 @@ export const PublicacionesScreen = () => {
         <div className="App ">
             <div className="container">
 
-                <div className="row justiContFlexEnd">
-                    <button className="ps-btn-logOut cursorpointer" onClick={logOut}>{`${nombre}  `}<i className="fas fa-sign-out-alt"></i></button>
+                <div className="row justiContFlexEnd ps-div-btn-logOut">
+                    <button className="ps-btn-logOut cursorpointer" onClick={logOut}>{`Hola ${nombre}  `}<i className="fas fa-sign-out-alt"></i></button>
                 </div>
 
                 <Header />
-
-                {
-                    (publicaciones.length < 1) 
-                    ? ( <h1>! Todavia sin publicaciones ! </h1> )
-                    : (
-                        
-                        publicaciones.map(p => {
-                            return <Publicacion key={p.id_publicacion} publicacion={p}/>
-                        })
-                    )
-                }
+                <article>
+                    {
+                        (publicaciones.length < 1) 
+                        ? ( <h1>! Todavia sin publicaciones ! </h1> )
+                        : (
+                            
+                            publicaciones.map(p => {
+                                return <Publicacion key={p.id_publicacion} publicacion={p}/>
+                            })
+                        )
+                    }
+                </article>
             </div>
         </div>
     )

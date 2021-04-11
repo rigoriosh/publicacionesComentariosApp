@@ -1,7 +1,5 @@
 .App {
     text-align: center;
-    background-color: #667a8129;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,5 +11,16 @@
   .ps-btn-logOut{
     border: none;
     background: transparent;    
-    align-self: flex-end;
+    align-self: flex-end;    
+    outline: none;
+  }
+  .ps-btn-logOut:hover{
+    background-color: rgba(0, 0, 0, 0.479);
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  .ps-div-btn-logOut{
+    position: fixed;
+    right: 0px;
   }

@@ -20,9 +20,9 @@ export const isLogin = () => {
     let user = localStorage.getItem('user'); // simulación de base de dato
     let payload;
     if(!user){
-        payload = { checking: true, uid: null, nombre: null }
+        payload = { uid: null, nombre: null }
     }else{
-        payload = {...JSON.parse(user), checking: false}
+        payload = {...JSON.parse(user)}
     }
 
     return {

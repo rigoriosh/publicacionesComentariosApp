@@ -46,11 +46,23 @@
     border-right: 1px solid rgb(202 210 218);
     padding-top: 15px;
     padding-bottom: 15px;
+    cursor: pointer;
+  }
+
+  .public-cont1:hover{
+    background-color: #86858533;
+    
   }
 
   .public-cont2{    
     padding-top: 15px;
     padding-bottom: 15px;
+    cursor: pointer;
+  }
+
+  .public-cont2:hover{
+    background-color: #86858533;
+    
   }
 
   .public-pb{

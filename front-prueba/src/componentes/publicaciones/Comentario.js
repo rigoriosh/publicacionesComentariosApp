@@ -9,8 +9,9 @@ export const Comentario = ({comentario}) => {
     
     const {nombreUsuario, foto, fecha, comentario: comen} = comentario;
   
-    const {time, textTime} = getTimeFixes(new Date(fecha)) 
-
+    const timeFixes = getTimeFixes(new Date(fecha)) 
+    
+    const {time, textTime} = timeFixes;
 
     return (
         <div className=" ">
